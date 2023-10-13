@@ -140,13 +140,6 @@ export const AddInput = () => {
     <Container>
       <Title>Input configuration</Title>
 
-      <TextInput
-        onChange={changeLabel}
-        value={label}
-      >
-        Label
-      </TextInput>
-
       <Heading>Type</Heading>
       <RadioButtons>
         <RadioButton
@@ -216,6 +209,13 @@ export const AddInput = () => {
           </AddOption>
         </Options>
       )}
+
+      <TextInput
+        onChange={changeLabel}
+        value={label}
+      >
+        Label
+      </TextInput>
 
       <Buttons>
         <Button

@@ -30,7 +30,8 @@ export const FormPreview = styled.div`
   border-radius: 1rem;
 
   padding: 1rem;
-  margin-top: 2rem;
+  margin: 2rem auto;
+  max-width: 32rem;
 `;
 
 export const FPTitle = styled.h3`
@@ -43,4 +44,9 @@ export const FPTitle = styled.h3`
 
 export const FPInput = styled.div`
   margin-bottom: 2rem;
+`;
+
+export const FPButtons = styled.div`
+  display: flex;
+  justify-content: end;
 `;

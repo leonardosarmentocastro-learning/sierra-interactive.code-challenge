@@ -1,10 +1,12 @@
-import { useCallback, useContext, useMemo } from 'react';
+import { useCallback, useContext, useMemo, useState } from 'react';
 
+import { Data } from './Data';
 import { DynamicInput } from './DynamicInput';
 import { AddInput } from './AddInput';
 import {
   Container,
   Content,
+  FPButtons,
   FPInput,
   FPTitle,
   FormPreview,
@@ -19,12 +21,7 @@ import { Button } from '../../ui';
 
 export const DynamicForm = () => {
   const { inputs } = useContext(DynamicFormContext);
-
-  // callbacks
-  /////
-  const displayData = useCallback(() => {
-    alert(JSON.stringify(inputs, null, 2));
-  }, [ inputs ]);
+  const [ displayData, setDisplayData ] = useState(false);
 
   // memos
   /////
@@ -32,6 +29,17 @@ export const DynamicForm = () => {
     () => inputs.length !== 0,
     [ inputs ]
   );
+
+  const data = useMemo(
+    () => JSON.stringify(inputs, null, 2),
+    [ inputs ]
+  );
+
+  // callbacks
+  /////
+  const toggleDisplay = useCallback(() => {
+    setDisplayData(prev => !prev);
+  }, [ setDisplayData ]);
 
   return (
     <Container>
@@ -55,8 +63,16 @@ export const DynamicForm = () => {
               </FPInput>
             ))}
 
-            <Button onClick={displayData}>Submit</Button>
+            <FPButtons>
+              <Button onClick={toggleDisplay}>Display data</Button>
+            </FPButtons>
           </FormPreview>
+        )}
+
+        {displayData && (
+          <Data>
+            {data}
+          </Data>
         )}
       </Content>
     </Container>

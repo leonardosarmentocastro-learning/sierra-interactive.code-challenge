@@ -30,7 +30,11 @@ export const RadioButtons = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Buttons = styled.div``;
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: end;
+  margin-top: 2rem;
+`;
 export const Options = styled.div`
   margin-bottom: 2rem;
 `;
