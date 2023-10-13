@@ -50,3 +50,16 @@ export const FPButtons = styled.div`
   display: flex;
   justify-content: end;
 `;
+
+export const DisplayData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  align-items: center;
+  justify-content: center;
+`;
+
+export const DDButtons = styled.div`
+  margin: 0 auto;
+`;

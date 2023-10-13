@@ -6,6 +6,8 @@ import { AddInput } from './AddInput';
 import {
   Container,
   Content,
+  DisplayData,
+  DDButtons,
   FPButtons,
   FPInput,
   FPTitle,
@@ -35,11 +37,21 @@ export const DynamicForm = () => {
     [ inputs ]
   );
 
+  const buttonText = useMemo(
+    () => `${displayData ? 'Hide' : 'Display'} data`,
+    [ displayData ]
+  );
+
   // callbacks
   /////
   const toggleDisplay = useCallback(() => {
     setDisplayData(prev => !prev);
   }, [ setDisplayData ]);
+
+  const copy = useCallback(async () => {
+    await navigator.clipboard.writeText(data);
+    alert('Data copied to clipboard!');
+  }, [ data ]);
 
   return (
     <Container>
@@ -64,15 +76,21 @@ export const DynamicForm = () => {
             ))}
 
             <FPButtons>
-              <Button onClick={toggleDisplay}>Display data</Button>
+              <Button onClick={toggleDisplay}>{buttonText}</Button>
             </FPButtons>
           </FormPreview>
         )}
 
         {displayData && (
-          <Data>
-            {data}
-          </Data>
+          <DisplayData>
+            <Data>
+              {data}
+            </Data>
+
+            <DDButtons>
+              <Button onClick={copy}>Copy to clipboard</Button>
+            </DDButtons>
+          </DisplayData>
         )}
       </Content>
     </Container>

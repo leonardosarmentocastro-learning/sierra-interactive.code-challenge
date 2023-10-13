@@ -37,7 +37,7 @@ export const StyledButton = styled.button<IStyledButton>`
   opacity: ${({ disabled }) => disabled ? '.5' : '1'};
   pointer-events: ${({ disabled }) => disabled ? 'disabled' : 'auto'};
 
-  ${({ shrink }) => !!shrink && `
+  ${({ $shrink }) => !!$shrink && `
     height: min-content;
     width: min-content;
   `}
