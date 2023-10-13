@@ -24,7 +24,6 @@ export type TextInputConfiguration = {
 export type SelectOption = {
   id: string,
   label: string,
-  selected: boolean,
   value: any,
 };
 export type SelectableInputConfiguration = {
@@ -32,6 +31,7 @@ export type SelectableInputConfiguration = {
   label: string,
   options: SelectOption[],
   type: InputTypes.SELECT,
+  value: string,
 };
 
 export type InputConfiguration = TextInputConfiguration | SelectableInputConfiguration;

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
+  margin: 0 auto;
   padding: 1rem;
+  max-width: 32rem;
 `;
 
 export const Title = styled.h3`
@@ -17,7 +19,7 @@ export const Heading = styled.h3`
   font-size: 1.4rem;
   font-weight: 500;
 
-  margin: 0 0 .5rem;
+  margin: 2rem 0 .5rem;
 `;
 
 export const RadioButtons = styled.div`
@@ -28,6 +30,22 @@ export const RadioButtons = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Buttons = styled.div`
-  margin-top: 2rem;
+export const Buttons = styled.div``;
+export const Options = styled.div`
+  margin-bottom: 2rem;
+`;
+export const Option = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(12rem, 30rem)) min-content;
+  justify-content: start;
+  align-items: end;
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+`;
+export const AddOption = styled.div`
+  display: flex;
+  justify-content: center;
+
+  margin-top: 1rem;
 `;

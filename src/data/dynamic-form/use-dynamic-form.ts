@@ -4,20 +4,19 @@ import { DynamicFormContext } from './dynamic-form-context';
 import {
   Actions,
   InputConfiguration,
-  TextInputConfiguration,
 } from './types';
 
 export const useDynamicForm = () => {
   const { dynamicFormDispatch } = useContext(DynamicFormContext);
 
-  const addInput = useCallback((configuration: InputConfiguration) => {
+  const addInput = useCallback((input: InputConfiguration) => {
     dynamicFormDispatch({
       type: Actions.ADD_NEW_INPUT,
-      payload: configuration,
+      payload: input,
     });
   }, [ dynamicFormDispatch ]);
 
-  const changeInput = useCallback((input: TextInputConfiguration) => {
+  const changeInput = useCallback((input: InputConfiguration) => {
     dynamicFormDispatch({
       type: Actions.CHANGE_INPUT,
       payload: input,

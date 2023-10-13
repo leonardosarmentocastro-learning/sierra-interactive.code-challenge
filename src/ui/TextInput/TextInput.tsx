@@ -7,7 +7,7 @@ import {
 } from './styled';
 
 interface Props {
-  children: React.ReactNode,
+  children?: React.ReactNode,
   onChange: React.ChangeEventHandler<HTMLInputElement>,
   type?: InputTypes.TEXT | InputTypes.NUMBER,
   value: string,
@@ -20,7 +20,7 @@ export const TextInput = ({
 }: Props) => {
   return (
     <Container>
-      <Label>{children}&nbsp;</Label>
+      {!!children && <Label>{children}&nbsp;</Label>}
       <Input
         onChange={onChange}
         type={type}

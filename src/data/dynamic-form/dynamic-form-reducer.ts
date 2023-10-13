@@ -2,7 +2,6 @@ import { useReducer } from 'react';
 
 import { Action, Actions, State } from './types';
 import { DEFAULT_DYNAMIC_FORM_CONTEXT as defaultState } from './dynamic-form-context';
-import { uuid } from '../../utils';
 
 const reducer = (state: State, action: Action) => {
   console.debug(`[dynamic-form-reducer] action.type: ${action.type}`);
@@ -10,7 +9,7 @@ const reducer = (state: State, action: Action) => {
 
   switch(action.type) {
     case Actions.ADD_NEW_INPUT: {
-      const newInput = { ...action.payload, id: uuid() };
+      const newInput = action.payload;
       const newInputs = [ ...state.inputs, newInput ];
 
       return { ...state, inputs: newInputs };

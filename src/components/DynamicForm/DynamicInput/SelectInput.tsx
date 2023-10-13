@@ -6,17 +6,16 @@ import {
 
 import {
   InputConfiguration,
-  TextInputTypes,
-  TextInputConfiguration,
+  SelectableInputConfiguration,
   useDynamicForm,
 } from '../../../data';
-import { TextInput as UITextInput } from '../../../ui';
+import { SelectInput as UISelectInput } from '../../../ui';
 
 interface Props { input: InputConfiguration };
-export const TextInput = ({ input }: Props) => {
-  const textInput = (input as TextInputConfiguration);
+export const SelectInput = ({ input }: Props) => {
+  const selectInput = (input as SelectableInputConfiguration);
   const { changeInput } = useDynamicForm();
-  const [ value, setValue ] = useState('');
+  const [ value, setValue ] = useState(selectInput.value);
 
   // callbacks
   /////
@@ -29,7 +28,7 @@ export const TextInput = ({ input }: Props) => {
   /////
   useEffect(() => {
     changeInput({
-      ...textInput,
+      ...selectInput,
       value,
     });
   }, [
@@ -38,12 +37,9 @@ export const TextInput = ({ input }: Props) => {
   ]);
 
   return (
-    <UITextInput
-      type={input.type as TextInputTypes}
+    <UISelectInput
+      input={selectInput}
       onChange={change}
-      value={value}
-    >
-      {input.label}
-    </UITextInput>
+    />
   );
 };

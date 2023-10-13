@@ -15,7 +15,7 @@ export const Label = styled.label`
   margin: 0 0 .5rem;
 `;
 
-export const Input = styled.input`
+export const Select = styled.select`
   padding: 1rem;
   max-width: 30rem;
 

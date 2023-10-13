@@ -4,6 +4,7 @@ import { DynamicInput } from './DynamicInput';
 import { AddInput } from './AddInput';
 import {
   Container,
+  Content,
   FPInput,
   FPTitle,
   FormPreview,
@@ -39,23 +40,25 @@ export const DynamicForm = () => {
         <Subtitle>Define your own custom surveys.</Subtitle>
       </Heading>
 
-      <AddInput />
+      <Content>
+        <AddInput />
 
-      {displayFormPreview && (
-        <FormPreview>
-          <FPTitle>Form preview</FPTitle>
+        {displayFormPreview && (
+          <FormPreview>
+            <FPTitle>Form preview</FPTitle>
 
-          {inputs.map((input, i) => (
-            <FPInput key={i}>
-              <DynamicInput
-                input={input}
-              />
-            </FPInput>
-          ))}
+            {inputs.map((input, i) => (
+              <FPInput key={i}>
+                <DynamicInput
+                  input={input}
+                />
+              </FPInput>
+            ))}
 
-          <Button onClick={displayData}>Submit</Button>
-        </FormPreview>
-      )}
+            <Button onClick={displayData}>Submit</Button>
+          </FormPreview>
+        )}
+      </Content>
     </Container>
   );
 };
