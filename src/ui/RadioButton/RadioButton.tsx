@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode,
   onChange: React.ChangeEventHandler<HTMLInputElement>,
   value: string,
-};
+}
 export const RadioButton = ({
   checked,
   children,

@@ -4,7 +4,7 @@ import { UseDataContext } from './data';
 import { DynamicForm } from './components';
 import { Page } from './ui';
 
-interface Props { children: ReactNode };
+interface Props { children: ReactNode }
 const Prepare = memo(({ children }: Props) => {
   return (
     <UseDataContext>

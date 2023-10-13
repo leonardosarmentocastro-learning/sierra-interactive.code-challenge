@@ -11,7 +11,7 @@ interface Props {
   onChange: React.ChangeEventHandler<HTMLInputElement>,
   type?: InputTypes.TEXT | InputTypes.NUMBER,
   value: string,
-};
+}
 export const TextInput = ({
   children,
   onChange,

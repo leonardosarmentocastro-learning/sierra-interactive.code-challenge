@@ -12,7 +12,7 @@ import {
 } from '../../../data';
 import { TextInput as UITextInput } from '../../../ui';
 
-interface Props { input: InputConfiguration };
+interface Props { input: InputConfiguration }
 export const TextInput = ({ input }: Props) => {
   const textInput = (input as TextInputConfiguration);
   const { changeInput } = useDynamicForm();
@@ -21,7 +21,7 @@ export const TextInput = ({ input }: Props) => {
   // callbacks
   /////
   const change = useCallback(
-    (e: any) => setValue(e.target.value),
+    (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value),
     [ setValue ]
   );
 
@@ -32,7 +32,7 @@ export const TextInput = ({ input }: Props) => {
       ...textInput,
       value,
     });
-  }, [
+  }, [ // eslint-disable-line react-hooks/exhaustive-deps
     changeInput,
     value,
   ]);

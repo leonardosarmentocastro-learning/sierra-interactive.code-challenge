@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { ButtonColors } from './types';
 
-interface IStyledButton { $shrink: boolean };
+interface IStyledButton { $shrink: boolean }
 export const StyledButton = styled.button<IStyledButton>`
   background-color: ${({ color }) => color};
   border-radius: 2rem;

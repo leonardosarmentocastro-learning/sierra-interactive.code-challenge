@@ -11,7 +11,7 @@ import {
 } from '../../../data';
 import { SelectInput as UISelectInput } from '../../../ui';
 
-interface Props { input: InputConfiguration };
+interface Props { input: InputConfiguration }
 export const SelectInput = ({ input }: Props) => {
   const selectInput = (input as SelectableInputConfiguration);
   const { changeInput } = useDynamicForm();
@@ -20,7 +20,7 @@ export const SelectInput = ({ input }: Props) => {
   // callbacks
   /////
   const change = useCallback(
-    (e: any) => setValue(e.target.value),
+    (e: React.ChangeEvent<HTMLSelectElement>) => setValue(e.target.value),
     [ setValue ]
   );
 
@@ -31,7 +31,7 @@ export const SelectInput = ({ input }: Props) => {
       ...selectInput,
       value,
     });
-  }, [
+  }, [ // eslint-disable-line react-hooks/exhaustive-deps
     changeInput,
     value,
   ]);

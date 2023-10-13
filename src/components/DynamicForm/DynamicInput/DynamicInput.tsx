@@ -4,7 +4,7 @@ import { SelectInput } from './SelectInput';
 import { TextInput } from './TextInput';
 import { InputConfiguration, InputTypes } from '../../../data';
 
-interface Props { input: InputConfiguration };
+interface Props { input: InputConfiguration }
 export const DynamicInput = ({ input }: Props) => {
   const Component = useMemo(() => {
     switch(input.type) {

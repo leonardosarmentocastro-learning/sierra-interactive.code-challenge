@@ -4,12 +4,12 @@ export enum InputTypes {
   TEXT = 'text',
   NUMBER = 'number',
   SELECT = 'select'
-};
+}
 
 export enum Actions {
   ADD_NEW_INPUT = 'ADD_NEW_INPUT',
   CHANGE_INPUT = 'CHANGE_INPUT',
-};
+}
 
 // types
 /////
@@ -24,7 +24,7 @@ export type TextInputConfiguration = {
 export type SelectOption = {
   id: string,
   label: string,
-  value: any,
+  value: string,
 };
 export type SelectableInputConfiguration = {
   id?: string,
@@ -40,10 +40,10 @@ export type InputConfiguration = TextInputConfiguration | SelectableInputConfigu
 /////
 export interface Action {
   type: Actions;
-  payload: any,
-};
+  payload: InputConfiguration | any, // eslint-disable-line  @typescript-eslint/no-explicit-any
+}
 
 export interface State {
   inputs: InputConfiguration[],
-  dynamicFormDispatch: Function,
-};
+  dynamicFormDispatch: (action: Action) => void,
+}

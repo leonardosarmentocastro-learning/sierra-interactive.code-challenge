@@ -8,7 +8,7 @@ import { SelectableInputConfiguration } from '../../data';
 interface Props {
   onChange: React.ChangeEventHandler<HTMLSelectElement>,
   input: SelectableInputConfiguration,
-};
+}
 export const SelectInput = ({
   onChange,
   input,

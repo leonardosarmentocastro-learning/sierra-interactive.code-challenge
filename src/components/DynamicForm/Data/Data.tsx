@@ -1,6 +1,6 @@
 import { Code } from './styled';
 
-interface Props { children: React.ReactNode };
+interface Props { children: React.ReactNode }
 export const Data = ({ children }: Props) => {
   return (
     <Code>

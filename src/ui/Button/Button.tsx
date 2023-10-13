@@ -9,7 +9,7 @@ interface Props {
   disabled?: boolean,
   onClick: React.MouseEventHandler<HTMLButtonElement>,
   $shrink?: boolean,
-};
+}
 
 export const Button = ({
   children,
